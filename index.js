@@ -213,7 +213,7 @@
         }, timeout);
       }
     
-      id = uuid();
+      id = genID(self);
       self._queue[id] = {
         callback: callback,
         timer: timer,
@@ -223,7 +223,7 @@
     return emitData(self, {
       event: event,
       args: args,
-      id: genID(self),
+      id: id,
     });
   };
 
