@@ -1,8 +1,16 @@
 {
   "name": "rpc-prototype",
   "description": "Another RPC implementation",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "main": "./index.js",
+  "keywords": [
+    "rpc",
+    "prototype",
+    "transport",
+    "request",
+    "response",
+    "remote"
+  ],
   "license": "MIT",
   "repository": {
     "type": "git",
