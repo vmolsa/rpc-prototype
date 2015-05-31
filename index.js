@@ -46,6 +46,16 @@
     this._events = {};
     this._queue = {};
   }
+
+  function genID(self) {
+    var id = uuid();
+    
+    if (self._queue[id]) {
+      return genID(self);
+    }
+
+    return id;
+  }
   
   function emitError(self, error) {
     if (_.isFunction(self._events['error'])) {
@@ -213,7 +223,7 @@
     return emitData(self, {
       event: event,
       args: args,
-      id: id,
+      id: genID(self),
     });
   };
 
