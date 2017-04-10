@@ -19,3 +19,5 @@ bob.exec('ping', 'Hello World!').then(result => {
   throw error;
 });
 ```
+
+[for more examples](https://github.com/vmolsa/rpc-prototype/tree/master/examples)
