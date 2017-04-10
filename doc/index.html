@@ -68,14 +68,15 @@
 				<p>Another RPC Implementation</p>
 				<h2 id="api-documentation">API Documentation</h2>
 				<p><a href="https://rawgit.com/vmolsa/rpc-prototype/master/doc/classes/_rpt_.rpc.html">rpc-prototype</a></p>
+				<h2 id="example">Example</h2>
 				<pre><code class="lang-js">alice.on(<span class="hljs-string">'ping'</span>, (resolve, reject, data) =&gt; {
-    resolve(data); <span class="hljs-comment">// Sends response with 'Hello World!'</span>
+  resolve(data); <span class="hljs-comment">// Sends response with 'Hello World!'</span>
 });
 
-bob.exec(<span class="hljs-string">'ping'</span>, msg).then(<span class="hljs-function"><span class="hljs-params">result</span> =&gt;</span> {
-    <span class="hljs-built_in">console</span>.log(result); <span class="hljs-comment">// Prints 'Hello World!' </span>
+bob.exec(<span class="hljs-string">'ping'</span>, <span class="hljs-string">'Hello World!'</span>).then(<span class="hljs-function"><span class="hljs-params">result</span> =&gt;</span> {
+  <span class="hljs-built_in">console</span>.log(result); <span class="hljs-comment">// Prints 'Hello World!' </span>
 }).catch(<span class="hljs-function"><span class="hljs-params">error</span> =&gt;</span> {
-    <span class="hljs-keyword">throw</span> error;
+  <span class="hljs-keyword">throw</span> error;
 });
 </code></pre>
 			</div>
