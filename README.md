@@ -6,14 +6,16 @@ Another RPC Implementation
 
 [rpc-prototype](https://rawgit.com/vmolsa/rpc-prototype/master/doc/classes/_rpt_.rpc.html)
 
+## Example
+
 ```js
 alice.on('ping', (resolve, reject, data) => {
-    resolve(data); // Sends response with 'Hello World!'
+  resolve(data); // Sends response with 'Hello World!'
 });
 
-bob.exec('ping', msg).then(result => {
-    console.log(result); // Prints 'Hello World!' 
+bob.exec('ping', 'Hello World!').then(result => {
+  console.log(result); // Prints 'Hello World!' 
 }).catch(error => {
-    throw error;
+  throw error;
 });
 ```
