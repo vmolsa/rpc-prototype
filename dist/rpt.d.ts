@@ -1,0 +1,51 @@
+import { State, Stream, errorCallback, notifyCallback, rejectCallback, resolveCallback, dataCallback } from 'stream-ng';
+export declare function string2buffer(str: string, strlen?: number): Uint8Array;
+export declare function buffer2string(data: Uint8Array): string;
+export declare function writeUint32BE(buffer: any, offset: any, value: any): void;
+export declare function readUint32BE(buffer: any, offset: any): number;
+export declare function concatUint8Array(src1: Uint8Array, src2: Uint8Array): Uint8Array;
+export declare function CRC24(data: string): number;
+export interface Options {
+    deflateThreshold?: number;
+    maxThresholdSize?: number;
+    ipc?: boolean;
+}
+export declare class RPC extends Stream {
+    private _active;
+    private _pending;
+    private _queue;
+    private _statechange;
+    private _options;
+    constructor(options?: Options);
+    on(event: string, callback: (resolve: resolveCallback, reject: rejectCallback, data?: any) => void): RPC;
+    exec(event: string, data?: any): Promise<any>;
+    off(event: string): RPC;
+    then(resolve: any, reject?: any): RPC;
+    catch(reject: any): RPC;
+    finally(callback: any): RPC;
+    setState(state: State): RPC;
+    open(callback: notifyCallback): RPC;
+    close(callback: notifyCallback): RPC;
+    pause(callback: notifyCallback): RPC;
+    resume(callback: notifyCallback): RPC;
+    drain(callback: notifyCallback): RPC;
+    data(callback: dataCallback): RPC;
+    end(arg?: any): RPC;
+    write(chunk: any, callback?: errorCallback): RPC;
+    push(chunk: any, callback?: errorCallback): RPC;
+    private addRef();
+    private removeRef();
+    private handlePacket(packet);
+    private parse(chunk);
+    private uniqueId(event);
+    private create(id, callback);
+    private remove(id);
+    private send(packet, callback?, data?);
+    private decode(packet);
+    private static setMask(event, value?);
+    private static Encode(context, options);
+    private static Decode(encoded);
+    private static Parse(packet);
+    private static Compile(packet);
+    private static Dump(packet);
+}

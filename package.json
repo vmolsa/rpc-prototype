@@ -1,15 +1,18 @@
 {
   "name": "rpc-prototype",
-  "description": "Another RPC implementation",
-  "version": "1.0.2",
-  "main": "./index.js",
+  "description": "Another RPC Implementation",
+  "version": "2.0.0",
+  "main": "dist/rpt.js",
   "keywords": [
     "rpc",
     "prototype",
     "transport",
     "request",
     "response",
-    "remote"
+    "remote",
+    "promise",
+    "stream",
+    "ipc"
   ],
   "license": "MIT",
   "repository": {
@@ -18,7 +21,14 @@
   },
   "author": "vmolsa <ville.molsa@gmail.com> (http://github.com/vmolsa)",
   "dependencies": {
-    "node-uuid": "^1.4.3",
-    "underscore": "^1.8.3"
+    "pako": "^1.0.5",
+    "stream-ng": "^2.0.17"
+  },
+  "scripts": {
+    "test": "mocha"
+  },
+  "devDependencies": {
+    "mocha": "^3.2.0",
+    "source-map-support": "^0.4.12"
   }
 }

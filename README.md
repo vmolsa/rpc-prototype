@@ -1,46 +1,19 @@
-Another RPC implementation
+## rpc-prototype
 
-````
-var rpcproto = require('rtc-prototype');
+Another RPC Implementation
 
-var alice = new rpcproto();
-var bob = new rpcproto();
+## API Documentation
 
-alice.on('data', function(data) {
-  if (!bob.parse(data)) {
-    console.log('Parser Error!');
-  }
+[rpc-prototype](https://rawgit.com/vmolsa/rpc-prototype/master/doc/classes/_rpt_.rpc.html)
+
+```js
+alice.on('ping', (resolve, reject, data) => {
+    resolve(data); // Sends response with 'Hello World!'
 });
 
-bob.on('data', function(data) {
-  if (!alice.parse(data)) {
-    console.log('Parser Error!');
-  }
+bob.exec('ping', msg).then(result => {
+    console.log(result); // Prints 'Hello World!' 
+}).catch(error => {
+    throw error;
 });
-
-bob.on('ping', function(req, callback) {
-  if (req == 'Hello World!') {
-    callback('pong');
-  }
-});
-
-bob.on('message', function(req, callback) {
-  console.log('Got Message:', req);
-});
-
-bob.on('shutdown', function(req, callback) {
-  console.log('Got Shutdown request!? :O');
-});
-
-alice.rpc('ping', 'Hello World!', function(error, reply) {
-  if (error) {
-    console.log('Error:', error);
-  }
-  
-  console.log(reply);
-}, 1000);
-
-alice.rpc('message', 'Hello World!');
-
-alice.rpc('shutdown');
-````
+```
