@@ -3,6 +3,7 @@
   "description": "Another RPC Implementation",
   "version": "2.0.0",
   "main": "dist/rpt.js",
+  "typings": "dist/rpt.d.ts",
   "keywords": [
     "rpc",
     "prototype",
